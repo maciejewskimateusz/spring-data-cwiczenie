@@ -1,4 +1,4 @@
-package pl.javastart.todo.exception;
+package pl.javastart.exception;
 
 public class TaskNotStartedException extends RuntimeException {
 }

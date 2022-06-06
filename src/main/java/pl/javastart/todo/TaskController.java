@@ -3,10 +3,10 @@ package pl.javastart.todo;
 import org.springframework.stereotype.Controller;
 import pl.javastart.dto.NewTaskDto;
 import pl.javastart.dto.TaskDurationDto;
-import pl.javastart.todo.exception.TaskAlreadyCompletedException;
-import pl.javastart.todo.exception.TaskAlreadyStartedException;
-import pl.javastart.todo.exception.TaskNotFoundException;
-import pl.javastart.todo.exception.TaskNotStartedException;
+import pl.javastart.exception.TaskAlreadyCompletedException;
+import pl.javastart.exception.TaskAlreadyStartedException;
+import pl.javastart.exception.TaskNotFoundException;
+import pl.javastart.exception.TaskNotStartedException;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
