@@ -10,14 +10,12 @@ import java.util.Optional;
 public class DbTaskRepository implements TaskRepository {
 
     private final EntityManager entityManager;
-    private static long nextId = 1;
 
 
     public DbTaskRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
-    @Transactional
     @Override
     public Task save(Task task) {
         entityManager.persist(task);
