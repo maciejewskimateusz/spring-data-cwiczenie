@@ -10,7 +10,9 @@ import pl.javastart.todo.exception.TaskNotStartedException;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
@@ -55,6 +57,20 @@ public class TaskService {
     public Optional<String> getTaskInfo(Long taskId) {
         return taskRepository.findById(taskId)
                 .map(Task::toString);
+    }
+
+    List<String> getAllNotStartedTasks(){
+        return taskRepository.findAllByStartTimeIsNullOrderByPriorityDesc()
+                .stream()
+                .map(Task::toString)
+                .collect(Collectors.toList());
+    }
+
+    List<String> getAllCompletedTasks(){
+        return taskRepository.findAllByCompletionTimeNotNullOrderByCompletionTimeDesc()
+                .stream()
+                .map(Task::toString)
+                .collect(Collectors.toList());
     }
 
 
